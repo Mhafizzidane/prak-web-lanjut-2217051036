@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('{{ asset('images/valo.png') }}');
+            background-image: url('{{ asset('assets/images/valo.png') }}');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -24,7 +24,7 @@
             flex-direction: column;
             align-items: center;
             background-color: rgba(255, 255, 255, 0.8);     
-            border-radius: 10px;
+            border-radius: 20px;
             padding: 20px;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); 
         }
@@ -63,7 +63,7 @@
     <div class="container">
         <div class="profile-container">
             <div class="profile-image">
-                <img src="{{ asset('images/foto_profile.JPG') }}" alt="Profile Image"> <!-- Gambar profil -->
+                <img src="{{ asset('assets/images/foto_profile.JPG') }}" alt="Profile Image"> <!-- Gambar profil -->
             </div>
 
             <div class="profile-info">
