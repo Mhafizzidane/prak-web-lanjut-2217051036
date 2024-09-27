@@ -67,9 +67,9 @@
             </div>
 
             <div class="profile-info">
-                <div>Nama: <?= $nama ?></div>
-                <div>Kelas: <?= $kelas ?></div>
-                <div>NPM: <?= $npm ?></div>
+                <div>Nama: {{ $nama }}</div>
+                <div>Kelas: {{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}</div> 
+                <div>NPM: {{ $npm }}</div>
             </div>
         </div>
     </div>
