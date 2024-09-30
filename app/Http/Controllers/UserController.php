@@ -9,35 +9,48 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function profile($nama = "", $kelas = "", $npm = "")
+    public $userModel;
+    public $kelasModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+        $this->kelasModel = new Kelas();
+    }
+
+    public function index()
     {
         $data = [
-            'nama'=> $nama,
-            'kelas'=> $kelas,
-            'npm'=> $npm,
+            'title' => 'List User',
+            'users' => $this->userModel->getUser(),
         ];
-        return view('profile', $data);
+        return view('list_user', $data);
     }
 
     public function create()
     {
-        return view('create_user', [
-            'kelas' => Kelas::all(),
-        ]);
+        $kelasModel = new Kelas();
+
+        $kelas = $kelasModel->getKelas();
+
+        $data = [
+            'title' => 'Create User',
+            'kelas' => $kelas,
+        ];
+
+        return view('create_user', $data);
     }
 
     public function store(UserRequest $request)
     {
-        $validatedData = $request->validated();
+    $validatedData = $request->validated();
 
-        $user = UserModel::create($validatedData);
+    $this->userModel->create([
+        'nama' => $validatedData['nama'],
+        'npm' => $validatedData['npm'],
+        'kelas_id' => $validatedData['kelas_id'],
+    ]);
 
-        $user->load('kelas');
-
-        return view('profile', [
-            'nama' => $user->nama,
-            'npm' => $user->npm,
-            'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan',
-        ]);
+    return redirect()->to('/user')->with('success', 'Data berhasil disimpan!');
     }
 }
