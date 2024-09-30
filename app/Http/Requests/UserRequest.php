@@ -8,7 +8,7 @@ class UserRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // Pastikan ini return true jika semua pengguna bisa mengakses
+        return true; 
     }
 
     public function rules()
