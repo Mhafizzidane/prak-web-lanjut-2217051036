@@ -40,15 +40,18 @@
             justify-content: center;
             align-items: center;
         }
+
         .profile-image img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
         }
+
         .profile-info {
             margin-top: 20px;
             width: 300px;
         }
+
         .profile-info div {
             background-color: #696969;
             color: #fff; 
@@ -62,14 +65,15 @@
 <body>
     <div class="container">
         <div class="profile-container">
-            <div class="profile-image">
-                <img src="{{ asset('assets/images/foto_profile.JPG') }}" alt="Profile Image"> <!-- Gambar profil -->
+            <div class="img-bx">
+                <!-- Tampilkan foto user atau gambar default -->
+                <img style="width: 10%" src="{{asset('upload/img/'.$user->foto) }}" alt="img">
             </div>
 
             <div class="profile-info">
-                <div>Nama: {{ $nama }}</div>
-                <div>Kelas: {{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}</div> 
-                <div>NPM: {{ $npm }}</div>
+                <div>Nama: {{ $user->nama }}</div>
+                <div>Kelas: {{ $user->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</div>
+                <div>NPM: {{ $user->npm }}</div>
             </div>
         </div>
     </div>

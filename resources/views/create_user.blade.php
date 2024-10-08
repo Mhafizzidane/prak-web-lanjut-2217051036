@@ -7,7 +7,9 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow p-4" style="width: 24rem;">
-        <form action="{{ route('user.store') }}" method="POST">
+
+        <!-- Tambahkan enctype multipart/form-data -->
+        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama :</label>
@@ -37,6 +39,12 @@
                 @error('kelas_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+            </div>
+
+            <!-- Tambahkan input untuk foto -->
+            <div class="mb-3">
+                <label for="foto" class="form-label">Foto</label>
+                <input class="form-control" type="file" id="foto" name="foto">
             </div>
 
             <div class="d-grid">
