@@ -17,6 +17,8 @@
                 <th scope="col">Nama</th>
                 <th scope="col">NPM</th>
                 <th scope="col">Kelas</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Aksi</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -27,6 +29,10 @@
                 <td>{{ $user['nama'] }}</td>
                 <td>{{ $user['npm'] }}</td>
                 <td>{{ $user['nama_kelas'] }}</td>
+                <td>
+                    <img src="{{asset('upload/img/'. $user->foto)}}" alt="Foto User" width="100">
+                </td>
+                <td><a href="{{route('user.show', $user->id) }}" class=btn btn-warning mb-3>Detail</a></td>
                 <td>
                     <a href=" " class="btn btn-warning btn-sm">Edit</a>
                     <form action=" " method="POST" style="display:inline;">
