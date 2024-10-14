@@ -19,7 +19,6 @@
                 <th scope="col">Kelas</th>
                 <th scope="col">Foto</th>
                 <th scope="col">Aksi</th>
-                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -32,13 +31,14 @@
                 <td>
                     <img src="{{asset('upload/img/'. $user->foto)}}" alt="Foto User" width="100">
                 </td>
-                <td><a href="{{route('user.show', $user->id) }}" class=btn btn-warning mb-3>Detail</a></td>
                 <td>
-                    <a href=" " class="btn btn-warning btn-sm">Edit</a>
-                    <form action=" " method="POST" style="display:inline;">
+                    <a href="{{route('user.show', $user->id) }}" class=btn btn-warning mb-3>Detail</a>
+                    <a href="{{route('user.edit', $user['id']) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{{route('user.destroy', $user['id']) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <button type = "submit" class = "btn btn-danger btn-sm" 
+                        onclick= "return confirm('Apakah anda yakin ingin menghpus user ini?')">Delete</button> 
                     </form>
                 </td>
             </tr>
