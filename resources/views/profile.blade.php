@@ -30,10 +30,10 @@
         }
 
         .profile-image {
-            border-radius: 50%;
+            border-radius: 50%; 
             border: 2px solid #ccc;
-            width: 200px;
-            height: 200px;
+            width: 200px;         
+            height: 200px;        
             background-color: #f0f0f0;
             overflow: hidden;
             display: flex;
@@ -42,9 +42,10 @@
         }
 
         .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
+            width: 100%;          
+            height: 100%;          
+            object-fit: cover;    
+            object-position: center; 
         }
 
         .profile-info {
@@ -65,9 +66,8 @@
 <body>
     <div class="container">
         <div class="profile-container">
-            <div class="img-bx">
-                <!-- Tampilkan foto user atau gambar default -->
-                <img style="width: 10%" src="{{asset('upload/img/'.$user->foto) }}" alt="img">
+            <div class="profile-image">
+                <img src="{{ asset('upload/img/'.$user->foto) }}" alt="img">
             </div>
 
             <div class="profile-info">
