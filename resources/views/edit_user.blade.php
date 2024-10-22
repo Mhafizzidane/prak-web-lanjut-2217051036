@@ -43,12 +43,28 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="jurusan" class="form-label">Jurusan :</label>
+                <input type="text" name="jurusan" class="form-control @error('jurusan') is-invalid @enderror" value="{{ old('jurusan', $user->jurusan) }}" placeholder="Jurusan">
+                @error('jurusan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="semester" class="form-label">Semester :</label>
+                <input type="number" name="semester" class="form-control @error('semester') is-invalid @enderror" value="{{ old('semester', $user->semester) }}" placeholder="Semester">
+                @error('semester')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
             <!-- Tambahkan input untuk foto -->
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
                 <input class="form-control" type="file" id="foto" name="foto">
                 @if($user->foto)
-                <img src="{{ asset($user->foto)}}" alt="User Photo" width = "100" class="mt-2">
+                <img src="{{ asset($user->foto)}}" alt="User Photo" width="100" class="mt-2">
                 @endif
             </div>
 

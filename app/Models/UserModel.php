@@ -17,16 +17,20 @@ class UserModel extends Model
         'npm',
         'kelas_id',
         'foto',
+        'jurusan',  
+        'semester', 
     ];
 
     public function getUser($id = null){
         if ($id != null){
             return $this->join('kelas', 'kelas_id', '=', 'user.kelas_id')
-            ->select('user.*', 'kelas.nama_kelas as nama_kelas')
-            ->where('user.id', $id)
-            ->first();
+                ->select('user.*', 'kelas.nama_kelas as nama_kelas')
+                ->where('user.id', $id)
+                ->first();
         }
-        return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')->select('user.*', 'kelas.nama_kelas as nama_kelas')->get();
+        return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')
+            ->select('user.*', 'kelas.nama_kelas as nama_kelas')
+            ->get();
     }
 
     public function kelas(){

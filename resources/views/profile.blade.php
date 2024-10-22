@@ -72,8 +72,10 @@
 
             <div class="profile-info">
                 <div>Nama: {{ $user->nama }}</div>
-                <div>Kelas: {{ $user->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</div>
+                <div>Kelas: {{ $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</div>
                 <div>NPM: {{ $user->npm }}</div>
+                <div>Jurusan: {{ $user->jurusan }}</div> 
+                <div>Semester: {{ $user->semester }}</div>
             </div>
         </div>
     </div>
