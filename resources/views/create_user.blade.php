@@ -8,7 +8,6 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow p-4" style="width: 24rem;">
 
-        <!-- Tambahkan enctype multipart/form-data -->
         <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -37,6 +36,24 @@
                     @endforeach
                 </select>
                 @error('kelas_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Tambahkan input untuk jurusan -->
+            <div class="mb-3">
+                <label for="jurusan" class="form-label">Jurusan :</label>
+                <input type="text" name="jurusan" class="form-control @error('jurusan') is-invalid @enderror" value="{{ old('jurusan') }}" placeholder="Jurusan">
+                @error('jurusan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Tambahkan input untuk semester -->
+            <div class="mb-3">
+                <label for="semester" class="form-label">Semester :</label>
+                <input type="number" name="semester" class="form-control @error('semester') is-invalid @enderror" value="{{ old('semester') }}" placeholder="Semester">
+                @error('semester')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
